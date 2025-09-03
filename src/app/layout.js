@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
+import "@/styles/globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
