@@ -1,12 +1,12 @@
 import React from 'react'
 import Image from "next/image";
 
-export default function MediaFactory({ item, className = "" }) {
+export default function MediaFactory({ item, className = "", onClick }) {
     if (!item?.type || !item?.src) return null;
 
     if (item.type === "image") {
         return (
-            <div className={`relative w-full aspect-[4/3] overflow-hidden rounded-xl ${className}`}>
+            <div className={`relative w-full aspect-[4/3] overflow-hidden rounded-xl ${className} cursor-pointer`} onClick={onClick}>
                 <Image
                     src={item.src}
                     alt={item.alt || ""}
@@ -22,7 +22,7 @@ export default function MediaFactory({ item, className = "" }) {
     if (item.type === "video") {
         // Contrôles/autoPlay/muted/loop configurables via l’objet item
         return (
-            <div className={`relative w-full overflow-hidden rounded-xl ${className}`}>
+            <div className={`relative w-full overflow-hidden rounded-xl cursor-pointer ${className}`} onClick={onClick}>
                 <video
                     src={item.src}
                     poster={item.poster}

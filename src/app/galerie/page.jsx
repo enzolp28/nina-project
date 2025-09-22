@@ -1,24 +1,115 @@
+"use client"
 import MediaFactory from "@/components/MediaFactory"
+import { useState, useEffect } from "react"
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
+import Image from "next/image"
+
 
 export default function page() {
-    const media = [
-        { id: 1, type: "image", src: "/images/ballon-1.jpg", alt: "Ballon 1", priority: true },
-        { id: 2, type: "image", src: "/images/ballon-2.jpg", alt: "Ballons 2" },
-        // Image distante (Unsplash)
-        { id: 3, type: "image", src: "/images/ballon-3.jpg", alt: "Food" },
-        // Vidéo locale
-        { id: 4, type: "video", src: "/images/Animals_Puppiness.mp4", muted: true, autoPlay: false, loop: false, controls: true },
+    const [images, setImages] = useState([])
+    const [currentIndex, setCurrentIndex] = useState(null)
 
-    ]
+    const handleOpenModal = (index) => {
+        setCurrentIndex(index)
+    }
+
+    const handleCloseModal = () => {
+        setCurrentIndex(null)
+
+    }
+    const selectedMedia = currentIndex !== null ? images[currentIndex] : null
+
+    const goNext = () => setCurrentIndex((prev) => (prev + 1) % images.length)
+    const goPrev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+
+    useEffect(() => {
+        async function fetchImages() {
+            try {
+                const res = await fetch('/data/images.json')
+                const data = await res.json()
+                setImages(data)
+            } catch (err) {
+                console.error('Erreur lors de la recherche des images :', err)
+            }
+        }
+
+        fetchImages()
+    }, []) // tableau de dépendances vide → lancé uniquement au montage
+
+    useEffect(() => {
+        if (currentIndex === null) return
+
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') handleCloseModal()
+            if (e.key === 'ArrowRight') goNext()
+            if (e.key === 'ArrowLeft') goPrev()
+        }
+
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [currentIndex, goNext, goPrev])
+
+
+
+
     return (
         <section className="py-16 bg-gray-50">
             <div className="max-w-6xl mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Galerie</h2>
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {media.map((item) => (
-                        <MediaFactory key={item.id} item={item} />
+                    {images.map((item, index) => (
+                        <MediaFactory key={item.id} item={item} onClick={() => handleOpenModal(index)} />
                     ))}
+                    {selectedMedia && (
+                        <div
+                            className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/30 backdrop-blur z-50"
+                            onClick={handleCloseModal}
+                        >
+                            <div className="relative max-w-4xl" onClick={(event) => event.stopPropagation()} >
+                                <button
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer"
+                                    onClick={goPrev}
+                                    aria-label="Image précédente">
+                                    <FaChevronLeft />
+                                </button>
+                                {selectedMedia.type === "image" && (
+                                    <div className="relative max-w-4xl w-full">
+                                        <div className="relative w-[800px] h-[600px]">
+                                            <Image
+                                                src={selectedMedia.src}
+                                                alt={selectedMedia.alt ?? ""}
+                                                fill
+                                                className="object-contain rounded-lg"
+                                                sizes="(max-width: 768px) 100vw, 60vw"
+                                            />
+                                        </div>
+                                    </div>
+
+                                )}
+                                {selectedMedia.type === "video" && (
+                                    <video
+                                        src={selectedMedia.src}
+                                        poster={selectedMedia.poster}
+                                        controls
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                    />
+                                )}
+                                <button
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer"
+                                    onClick={goNext}
+                                    aria-label="Image suivante"
+                                >
+                                    <FaChevronRight />
+                                </button>
+                            </div>
+
+                        </div>
+                    )}
+
                 </div>
             </div>
         </section>

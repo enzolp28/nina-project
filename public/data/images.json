@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "type": "image",
+        "src": "/images/ballon-1.jpg",
+        "alt": "Ballon 1",
+        "priority": true,
+        "tags": [
+            "anniversaire",
+            "famille"
+        ]
+    },
+    {
+        "id": 2,
+        "type": "image",
+        "src": "/images/ballon-2.jpg",
+        "alt": "Ballons 2",
+        "tags": [
+            "entreprise"
+        ]
+    },
+    {
+        "id": 3,
+        "type": "image",
+        "src": "/images/ballon-3.jpg",
+        "alt": "Food",
+        "tags": [
+            "domicile"
+        ]
+    },
+    {
+        "id": 4,
+        "type": "video",
+        "src": "/images/Animals_Puppiness.mp4",
+        "muted": true,
+        "autoPlay": false,
+        "loop": false,
+        "controls": true,
+        "tags": [
+            "entreprise"
+        ]
+    }
+]

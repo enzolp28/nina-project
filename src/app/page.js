@@ -71,7 +71,7 @@ export default function Home() {
       <section className="mb-30">
         <h3 className="text-center text-2xl font-bold">FAQ</h3>
         <div className="display flex flex-col items-center gap-10 my-30">
-          <DropDown title={"sded"} content={"fdfefe"} />
+          <DropDown title={"sded"} content={"lorem"} />
           <DropDown title={"sded"} content={"fdfefe"} />
           <DropDown title={"sded"} content={"fdfefe"} />
 
