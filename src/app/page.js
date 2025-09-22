@@ -2,6 +2,7 @@ import Image from "next/image";
 import ContactButton from "@/components/ContactButton";
 import Carroussel from "@/components/Carroussel";
 import CardService from "@/components/CardService";
+import DropDown from "@/components/DropDown";
 
 
 export default function Home() {
@@ -26,7 +27,7 @@ export default function Home() {
         <h2 className="text-4xl font-bold text-center text-teal-600">Nos Créations</h2>
         <Carroussel />
       </section>
-      <section className="py-16 bg-gray-50 rounded-3xl mb-50">
+      <section className="py-16 bg-gray-50 rounded-3xl mb-30">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Nos Services</h2>
           <h3 className="text-center text-2xl font-bold">Creation pour vos différents évènements</h3>
@@ -39,8 +40,8 @@ export default function Home() {
 
             <CardService bgClass="bg-green-100" title="🥂 Réceptions & événements privés" description="Mariages, baptêmes, soirées... Une décoration élégante et harmonieuse, pensée dans les moindres détails." />
 
-            <CardService bgClass="bg-pink-100" title="👶 Baby showers & gender reveal" description="Ambiance douce et raffinée pour fêter les plus beaux moments de la vie avec vos proches." /
-            >
+            <CardService bgClass="bg-pink-100" title="👶 Baby showers & gender reveal" description="Ambiance douce et raffinée pour fêter les plus beaux moments de la vie avec vos proches." />
+
 
             <CardService
               bgClass="bg-orange-100"
@@ -67,14 +68,16 @@ export default function Home() {
 
         </div>
       </section>
-      {/* <section className="my-30 flex flex-col items-center gap-20 ">
-        <div className="flex justify-between gap-30 mb-3">
-          <div className="h-60 w-50 border bg-gray-300 border-gray-300 rounded-2xl"></div>
-          <div className="h-60 w-50 border bg-gray-300 border-gray-300 rounded-2xl"></div>
-          <div className="h-60 w-50 border bg-gray-300 border-gray-300 rounded-2xl"></div>
+      <section className="mb-30">
+        <h3 className="text-center text-2xl font-bold">FAQ</h3>
+        <div className="display flex flex-col items-center gap-10 my-30">
+          <DropDown title={"sded"} content={"fdfefe"} />
+          <DropDown title={"sded"} content={"fdfefe"} />
+          <DropDown title={"sded"} content={"fdfefe"} />
+
+
         </div>
-        <ContactButton text="Contactez-nous" className={"py-3.5 px-12 hover:bg-red-600 hover:scale-105 transition-transform duration-300 "} />
-      </section> */}
+      </section>
     </main>
   );
 }

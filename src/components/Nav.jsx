@@ -16,12 +16,12 @@ export default function Nav() {
                 <span className="font-bold">Too Many Balloons</span>
             </Link>
 
-            <div className="flex items-center gap-15 mr-5 ">
+            <div className="flex items-center gap-10 mr-5 ">
                 <span className={`font-semibold ${pathname === '/' ? 'text-red-500 underline underline-offset-4' : ''}`}>
                     <Link href={'/'}>Accueil</Link>
                 </span>
-                <span className={`font-semibold ${pathname === '/service' ? 'text-red-500 underline underline-offset-4' : ''}`}>
-                    <Link href={'/service'}>Nos Services</Link>
+                <span className={`font-semibold ${pathname === '/galerie' ? 'text-red-500 underline underline-offset-4' : ''}`}>
+                    <Link href={'/galerie'}>Galerie</Link>
                 </span>
                 <ContactButton text={"Contact"} className={"py-2 px-8 ml-5 hover:bg-red-600"} />
             </div>
