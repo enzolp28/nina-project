@@ -10,7 +10,7 @@ export default function Nav() {
     const pathname = usePathname()
 
     return (
-        <nav className="border-b border-gray-400 p-2 flex justify-between">
+        <nav className="border-b border-gray-400 p-2 flex justify-between fixed top-0 w-full z-1111 bg-white">
             <Link className="flex items-center ml-4" href={'/'}>
                 <Image src='/images/logo-balloons.png' width={50} height={50} alt={'Logo'} />
                 <span className="font-bold">Too Many Balloons</span>

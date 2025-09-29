@@ -1,7 +1,7 @@
 "use client"
 import MediaFactory from "@/components/MediaFactory"
-import { useState, useEffect } from "react"
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
+import { useState, useEffect, useCallback } from "react"
+import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa"
 import Image from "next/image"
 
 
@@ -19,8 +19,14 @@ export default function page() {
     }
     const selectedMedia = currentIndex !== null ? images[currentIndex] : null
 
-    const goNext = () => setCurrentIndex((prev) => (prev + 1) % images.length)
-    const goPrev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+    const goNext = useCallback(() => {
+        setCurrentIndex((prev) => (prev + 1) % images.length)
+    }, [images.length])
+
+    const goPrev = useCallback(() => {
+        setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+    }, [images.length])
+
 
     useEffect(() => {
         async function fetchImages() {
@@ -37,7 +43,7 @@ export default function page() {
     }, []) // tableau de dépendances vide → lancé uniquement au montage
 
     useEffect(() => {
-        if (currentIndex === null) return
+        if (currentIndex === null || !images.length) return
 
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') handleCloseModal()
@@ -47,9 +53,7 @@ export default function page() {
 
         window.addEventListener('keydown', handleKeyDown)
         return () => window.removeEventListener('keydown', handleKeyDown)
-    }, [currentIndex, goNext, goPrev])
-
-
+    }, [currentIndex, images.length, goNext, goPrev])
 
 
     return (
@@ -61,56 +65,64 @@ export default function page() {
                     {images.map((item, index) => (
                         <MediaFactory key={item.id} item={item} onClick={() => handleOpenModal(index)} />
                     ))}
-                    {selectedMedia && (
-                        <div
-                            className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/30 backdrop-blur z-50"
-                            onClick={handleCloseModal}
-                        >
-                            <div className="relative max-w-4xl" onClick={(event) => event.stopPropagation()} >
-                                <button
-                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer"
-                                    onClick={goPrev}
-                                    aria-label="Image précédente">
-                                    <FaChevronLeft />
-                                </button>
-                                {selectedMedia.type === "image" && (
-                                    <div className="relative max-w-4xl w-full">
-                                        <div className="relative w-[800px] h-[600px]">
-                                            <Image
-                                                src={selectedMedia.src}
-                                                alt={selectedMedia.alt ?? ""}
-                                                fill
-                                                className="object-contain rounded-lg"
-                                                sizes="(max-width: 768px) 100vw, 60vw"
-                                            />
-                                        </div>
-                                    </div>
-
-                                )}
-                                {selectedMedia.type === "video" && (
-                                    <video
-                                        src={selectedMedia.src}
-                                        poster={selectedMedia.poster}
-                                        controls
-                                        autoPlay
-                                        muted
-                                        loop
-                                        playsInline
-                                    />
-                                )}
-                                <button
-                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer"
-                                    onClick={goNext}
-                                    aria-label="Image suivante"
-                                >
-                                    <FaChevronRight />
-                                </button>
-                            </div>
-
-                        </div>
-                    )}
-
                 </div>
+                {selectedMedia && (
+                    <div
+                        className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/30 backdrop-blur z-50"
+                        onClick={handleCloseModal}
+                    >
+                        <button
+                            className="absolute top-12 right-50 text-white text-3xl z-10 hover:cursor-pointer hover:scale-110 transition duration-200"
+                            onClick={handleCloseModal}
+                            aria-label="Fermer la modale"
+                        >
+                            <FaTimes />
+                        </button>
+                        <div className="relative max-w-4xl" onClick={(event) => event.stopPropagation()} >
+
+                            <button
+                                className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer z-10 hover:scale-130 transition duration-200"
+                                onClick={goPrev}
+                                aria-label="Image précédente">
+                                <FaChevronLeft />
+                            </button>
+                            {selectedMedia.type === "image" && (
+                                <div className="relative max-w-4xl w-full">
+                                    <div className="relative w-[800px] h-[600px]">
+                                        <Image
+                                            src={selectedMedia.src}
+                                            alt={selectedMedia.alt ?? ""}
+                                            fill
+                                            className="object-contain rounded-lg"
+                                            sizes="(max-width: 768px) 100vw, 60vw"
+                                        />
+                                    </div>
+                                </div>
+
+                            )}
+                            {selectedMedia.type === "video" && (
+                                <video
+                                    src={selectedMedia.src}
+                                    poster={selectedMedia.poster}
+                                    controls
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                />
+                            )}
+                            <button
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer z-10 hover:scale-130 transition duration-200"
+                                onClick={goNext}
+                                aria-label="Image suivante
+                                "
+                            >
+                                <FaChevronRight />
+                            </button>
+                        </div>
+
+                    </div>
+                )}
             </div>
         </section>
 
