@@ -19,7 +19,7 @@ export default function Home() {
           <div className="h-60 border border-gray-300"></div>
         </div>
         <section className="w-1/3 flex justify-center">
-          <Image src='/images/orange-balloons.png' width={400} height={500} alt={'Logo'} className="rounded-3xl" />
+          <Image src='/images/ex1.jpg' width={400} height={500} alt={'Logo'} className="rounded-3xl" />
           {/* <TransitionImage /> */}
         </section>
       </div>

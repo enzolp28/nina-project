@@ -5,6 +5,7 @@ import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa"
 import Image from "next/image"
 
 
+
 export default function page() {
     const [images, setImages] = useState([])
     const [currentIndex, setCurrentIndex] = useState(null)
@@ -57,7 +58,7 @@ export default function page() {
 
 
     return (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-gray-50 mt-20">
             <div className="max-w-6xl mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Galerie</h2>
 
