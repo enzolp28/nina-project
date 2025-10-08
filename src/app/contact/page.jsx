@@ -18,13 +18,20 @@ export default function page() {
 
     const validationSchema = z.object({
         nom: z.string()
+            .trim()
+            .nonempty({ message: 'Le nom est requis' })
             .min(2, { message: 'Le nom est trop court' })
             .max(50, { message: 'Le nom est trop long' })
-            .regex(/^[a-zA-ZÀ-ÿ\s'-]+$/, {
+            .regex(/^(?!\s*$)[a-zA-ZÀ-ÿ\s'-]+$/, {
                 message: "Le nom ne doit contenir que des lettres",
             }),
-        email: z.string().email({ message: 'Email invalide' }),
+        email: z.string()
+            .trim()
+            .nonempty({ message: 'Le mail est requis' })
+            .email({ message: 'Email invalide' }),
         message: z.string()
+            .trim()
+            .nonempty({ message: 'Le message est requis' })
             .min(10, { message: 'Le message est trop court' })
             .max(1200, { message: 'Le message est trop long' }),
     })
@@ -166,6 +173,16 @@ export default function page() {
                     {status === 'loading' ? 'Envoi…' : 'Envoyer'}
                 </button>
             </form>
+            {showModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+                    <div className="w-full max-w-md rounded-2xl bg-white p-6 text-center shadow-lg">
+                        <p className="text-lg font-semibold text-gray-900">
+                            {message || 'Votre message a bien été envoyé ✅'}
+                        </p>
+                        <p className="mt-2 text-sm text-gray-600">Redirection en cours…</p>
+                    </div>
+                </div>
+            )}
         </div>
 
     )
