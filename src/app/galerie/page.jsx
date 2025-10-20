@@ -69,17 +69,22 @@ export default function page() {
                 </div>
                 {selectedMedia && (
                     <div
-                        className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/30 backdrop-blur z-50"
+                        className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/30 backdrop-blur z-5000"
                         onClick={handleCloseModal}
                     >
                         <button
-                            className="absolute top-12 right-50 text-white text-3xl z-10 hover:cursor-pointer hover:scale-110 transition duration-200"
+                            className="absolute top-15 right-20 text-white text-3xl z-10 hover:cursor-pointer hover:scale-110 transition duration-200"
                             onClick={handleCloseModal}
                             aria-label="Fermer la modale"
                         >
                             <FaTimes />
                         </button>
                         <div className="relative max-w-4xl" onClick={(event) => event.stopPropagation()} >
+
+                            <div className="relative flex items-center justify-center">
+
+
+                            </div>
 
                             <button
                                 className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer z-10 hover:scale-130 transition duration-200"

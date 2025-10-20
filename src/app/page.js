@@ -1,11 +1,38 @@
+"use client"
+
 import Image from "next/image";
 import ContactButton from "@/components/ContactButton";
 import Carroussel from "@/components/Carroussel";
 import CardService from "@/components/CardService";
 import DropDown from "@/components/DropDown";
+import { useRouter } from "next/navigation"
+import { useState, useEffect } from "react";
 
 
 export default function Home() {
+  const router = useRouter()
+  const [tags, setTags] = useState([])
+
+  useEffect(() => {
+    const fetchTags = async () => {
+
+      try {
+        const res = await fetch('/data/tags.json')
+        const data = await res.json()
+        const allTags = data.flatMap(item => item.tags)
+        const uniqueTags = [...new Set(allTags)]
+        setTags(uniqueTags)
+        console.log(uniqueTags);
+
+
+      }
+      catch (err) {
+        console.log(err)
+      }
+    }
+    fetchTags()
+  }, [])
+
   return (
     <main className="  px-20 mt-30 ">
       <div className="flex justify-between gap-10">
@@ -33,26 +60,53 @@ export default function Home() {
           <h3 className="text-center text-2xl font-bold">Creation pour vos différents évènements</h3>
 
           <div className="grid gap-20 md:grid-cols-2 lg:grid-cols-3 my-30 items-stretch">
+            {/* {tags.map((tag, index) => (
+              <CardService key={index} bgClass="bg-blue-100" title={tag} description="Création de décors sur mesure pour vos évènements, avec des thèmes sur mesure et une ambiance conviviale."
+                onClick={() => router.push(`/galerie/${tag}`)}
+              />
+            ))} */}
 
-            <CardService bgClass="bg-blue-100" title="🎉 Anniversaires" description="Décoration festive et personnalisée pour petits et grands, avec des thèmes sur mesure et une ambiance conviviale." />
+            <CardService
+              bgClass="bg-blue-100"
+              title="🎉 Anniversaires"
+              description="Décoration festive et personnalisée pour petits et grands, avec des thèmes sur mesure et une ambiance conviviale."
+              tag="anniversaire"
+            />
 
-            <CardService bgClass="bg-yellow-100" title="🎄 Fêtes de fin d’année" description="Création de décors féeriques pour Noël, le Nouvel An et toutes vos célébrations hivernales." />
+            <CardService
+              bgClass="bg-yellow-100"
+              title="🎄 Fêtes de fin d’année"
+              description="Création de décors féeriques pour Noël, le Nouvel An et toutes vos célébrations hivernales."
+              tag="festes"
+            />
 
-            <CardService bgClass="bg-green-100" title="🥂 Réceptions & événements privés" description="Mariages, baptêmes, soirées... Une décoration élégante et harmonieuse, pensée dans les moindres détails." />
+            <CardService
+              bgClass="bg-green-100"
+              title="🥂 Réceptions & événements privés"
+              description="Mariages, baptêmes, soirées... Une décoration élégante et harmonieuse, pensée dans les moindres détails."
+              tag="receptions"
+            />
 
-            <CardService bgClass="bg-pink-100" title="👶 Baby showers & gender reveal" description="Ambiance douce et raffinée pour fêter les plus beaux moments de la vie avec vos proches." />
+            <CardService
+              bgClass="bg-pink-100"
+              title="👶 Baby showers & gender reveal"
+              description="Ambiance douce et raffinée pour fêter les plus beaux moments de la vie avec vos proches."
+              tag="baby-showers"
+            />
 
 
             <CardService
               bgClass="bg-orange-100"
               title="💼 Prestation en entreprise"
               description="Décoration d'événements professionnels : séminaires, fêtes, team building... pour une ambiance soignée et professionnelle."
+              tag="entreprise"
             />
 
             <CardService
               bgClass="bg-violet-100"
               title="🏠 Prestation à domicile"
               description="Nous nous déplaçons chez vous pour tout installer, vous n’avez rien à faire : profitez pleinement de votre événement."
+              tag="domicile"
             />
           </div>
 
