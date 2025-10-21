@@ -3,6 +3,7 @@ import MediaFactory from "@/components/MediaFactory"
 import { useState, useEffect, useCallback } from "react"
 import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa"
 import Image from "next/image"
+import ModalMedia from "@/components/ModalMedia"
 
 
 
@@ -57,6 +58,7 @@ export default function page() {
     }, [currentIndex, images.length, goNext, goPrev])
 
 
+
     return (
         <section className="py-16 bg-gray-50 mt-20">
             <div className="max-w-6xl mx-auto px-4">
@@ -68,66 +70,75 @@ export default function page() {
                     ))}
                 </div>
                 {selectedMedia && (
-                    <div
-                        className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/30 backdrop-blur z-5000"
-                        onClick={handleCloseModal}
-                    >
-                        <button
-                            className="absolute top-15 right-20 text-white text-3xl z-10 hover:cursor-pointer hover:scale-110 transition duration-200"
-                            onClick={handleCloseModal}
-                            aria-label="Fermer la modale"
-                        >
-                            <FaTimes />
-                        </button>
-                        <div className="relative max-w-4xl" onClick={(event) => event.stopPropagation()} >
 
-                            <div className="relative flex items-center justify-center">
+                    <ModalMedia
+                        media={selectedMedia}
+                        onClose={handleCloseModal}
+                        onNext={goNext}
+                        onPrev={goPrev}
+                        totalItems={images.length}
+                    />
+
+                    // <div
+                    //     className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/30 backdrop-blur z-5000"
+                    //     onClick={handleCloseModal}
+                    // >
+                    //     <button
+                    //         className="absolute top-15 right-20 text-white text-3xl z-10 hover:cursor-pointer hover:scale-110 transition duration-200"
+                    //         onClick={handleCloseModal}
+                    //         aria-label="Fermer la modale"
+                    //     >
+                    //         <FaTimes />
+                    //     </button>
+                    //     <div className="relative max-w-4xl" onClick={(event) => event.stopPropagation()} >
+
+                    //         <div className="relative flex items-center justify-center">
 
 
-                            </div>
+                    //         </div>
 
-                            <button
-                                className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer z-10 hover:scale-130 transition duration-200"
-                                onClick={goPrev}
-                                aria-label="Image précédente">
-                                <FaChevronLeft />
-                            </button>
-                            {selectedMedia.type === "image" && (
-                                <div className="relative max-w-4xl w-full">
-                                    <div className="relative w-[800px] h-[600px]">
-                                        <Image
-                                            src={selectedMedia.src}
-                                            alt={selectedMedia.alt ?? ""}
-                                            fill
-                                            className="object-contain rounded-lg"
-                                            sizes="(max-width: 768px) 100vw, 60vw"
-                                        />
-                                    </div>
-                                </div>
+                    //         <button
+                    //             className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer z-10 hover:scale-130 transition duration-200"
+                    //             onClick={goPrev}
+                    //             aria-label="Image précédente">
+                    //             <FaChevronLeft />
+                    //         </button>
+                    //         {selectedMedia.type === "image" && (
+                    //             <div className="relative max-w-4xl w-full">
+                    //                 <div className="relative w-[800px] h-[600px]">
+                    //                     <Image
+                    //                         src={selectedMedia.src}
+                    //                         alt={selectedMedia.alt ?? ""}
+                    //                         fill
+                    //                         className="object-contain rounded-lg"
+                    //                         sizes="(max-width: 768px) 100vw, 60vw"
+                    //                     />
+                    //                 </div>
+                    //             </div>
 
-                            )}
-                            {selectedMedia.type === "video" && (
-                                <video
-                                    src={selectedMedia.src}
-                                    poster={selectedMedia.poster}
-                                    controls
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                />
-                            )}
-                            <button
-                                className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer z-10 hover:scale-130 transition duration-200"
-                                onClick={goNext}
-                                aria-label="Image suivante
-                                "
-                            >
-                                <FaChevronRight />
-                            </button>
-                        </div>
+                    //         )}
+                    //         {selectedMedia.type === "video" && (
+                    //             <video
+                    //                 src={selectedMedia.src}
+                    //                 poster={selectedMedia.poster}
+                    //                 controls
+                    //                 autoPlay
+                    //                 muted
+                    //                 loop
+                    //                 playsInline
+                    //             />
+                    //         )}
+                    //         <button
+                    //             className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer z-10 hover:scale-130 transition duration-200"
+                    //             onClick={goNext}
+                    //             aria-label="Image suivante
+                    //             "
+                    //         >
+                    //             <FaChevronRight />
+                    //         </button>
+                    //     </div>
 
-                    </div>
+                    // </div>
                 )}
             </div>
         </section>

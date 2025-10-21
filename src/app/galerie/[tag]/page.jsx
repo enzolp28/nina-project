@@ -40,6 +40,8 @@ export default function GalerieTag() {
     // Déterminer le média sélectionné
     const selectedMedia = currentIndex !== null ? images[currentIndex] : null
 
+    console.log(images);
+
     return (
         <section className="px-20 py-30">
             <h2 className="text-3xl font-bold text-center mb-20 capitalize">
@@ -69,6 +71,7 @@ export default function GalerieTag() {
                 onNext={goNext}
                 onPrev={goPrev}
                 totalItems={images.length}
+
             />
         </section>
     )
