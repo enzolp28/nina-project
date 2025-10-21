@@ -71,6 +71,7 @@ export default function GalerieTag() {
                 onNext={goNext}
                 onPrev={goPrev}
                 totalItems={images.length}
+                currentIndex={currentIndex}
 
             />
         </section>

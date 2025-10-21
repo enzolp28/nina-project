@@ -77,6 +77,7 @@ export default function page() {
                         onNext={goNext}
                         onPrev={goPrev}
                         totalItems={images.length}
+                        currentIndex={currentIndex}
                     />
 
                     // <div

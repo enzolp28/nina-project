@@ -10,7 +10,8 @@ export default function ModalMedia({
     onClose,
     onNext,
     onPrev,
-    totalItems
+    totalItems,
+    currentIndex
 }) {
 
 
@@ -91,6 +92,12 @@ export default function ModalMedia({
                     >
                         <FaChevronRight />
                     </button>
+                )}
+
+                {totalItems > 1 && (
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-lg font-medium bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm">
+                        {currentIndex + 1} / {totalItems}
+                    </div>
                 )}
 
             </div>
