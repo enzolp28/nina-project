@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <footer className='bg-red-500 text-white flex justify-between p-8'>
+        <footer className='bg-[#268b9db7] text-white flex justify-between p-8'>
             <div>
                 <nav aria-label="Footer navigation" className='flex flex-col gap-5'>
                     <h3 className='font-bold text-lg '>Navigation</h3>

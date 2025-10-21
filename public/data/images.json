@@ -39,5 +39,25 @@
         "tags": [
             "entreprise"
         ]
+    },
+    {
+        "id": 5,
+        "type": "image",
+        "src": "/images/agence_halloween.jpg",
+        "alt": "Agence immobilière halloween",
+        "tags": [
+            "entreprise",
+            "halloween"
+        ]
+    },
+    {
+        "id": 6,
+        "type": "image",
+        "src": "/images/agence_halloween2.jpg",
+        "alt": "Agence immobilière halloween",
+        "tags": [
+            "halloween",
+            "entreprise"
+        ]
     }
 ]

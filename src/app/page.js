@@ -34,37 +34,53 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="  px-20 mt-30 ">
-      <div className="flex justify-between gap-10">
-        <section className="w-1/3 flex gap-20 justify-center flex-col " >
-          <h1 className="text-5xl font-bold text-red-500">TooManyBalloons</h1>
-          <p >Chez [Nom de ton entreprise], nous mettons notre créativité et notre savoir-faire au service de vos plus beaux moments. Que ce soit pour un anniversaire, une réception, les fêtes de Noël, ou toute autre occasion spéciale, nous vous accompagnons pour créer une ambiance unique, chaleureuse et inoubliable.
-            Chaque événement est une histoire, et notre mission est de la sublimer grâce à des services personnalisés et adaptés à vos envies. Vous avez une idée ? Nous la transformons en réalité. Vous cherchez l’inspiration ? Nous sommes là pour vous guider.
-            Faites de chaque moment une célébration à votre image.</p>
-        </section>
-        <div className="w-1/3 flex justify-center items-center ">
-          <div className="h-60 border border-gray-300"></div>
+    <main className="  mt-30 ">
+      <div className="flex justify-between gap-10 bg-[#CDEFF3] pb-20">
+        <div className="relative w-1/3 mx-auto">
+          <div className="absolute bottom-5 left-5 w-full h-full bg-[#fdcfd3] rounded-xl"></div>
+          <section className="border relative h-full flex flex-col gap-10 justify-center bg-[#bfd8cf] rounded-xl p-6" >
+            <h1 className="text-4xl font-bold text-stone-50">TooManyBalloons</h1>
+            <p >Chez [Nom de ton entreprise], nous mettons notre créativité et notre savoir-faire au service de vos plus beaux moments. Que ce soit pour un anniversaire, une réception, les fêtes de Noël, ou toute autre occasion spéciale, nous vous accompagnons pour créer une ambiance unique, chaleureuse et inoubliable.
+              Chaque événement est une histoire, et notre mission est de la sublimer grâce à des services personnalisés et adaptés à vos envies. Vous avez une idée ? Nous la transformons en réalité. Vous cherchez l’inspiration ? Nous sommes là pour vous guider.
+              Faites de chaque moment une célébration à votre image.</p>
+          </section>
         </div>
-        <section className="w-1/3 flex justify-center">
-          <Image src='/images/ex1.jpg' width={400} height={500} alt={'Logo'} className="rounded-3xl" />
+        {/* <div className="w-1/3 flex justify-center items-center ">
+          <div className="h-60 border border-gray-300"></div>
+        </div> */}
+        <section className="w-1/2 flex justify-center">
+          <Image src='/images/image-salon.jpg' width={500} height={600} alt={'Logo'} className="rounded-xl" />
           {/* <TransitionImage /> */}
         </section>
       </div>
-      <section className="mt-40 mb-20 flex flex-col items-center gap-20 ">
-        <h2 className="text-4xl font-bold text-center text-teal-600">Nos Créations</h2>
-        <Carroussel />
+
+      <section className="mt-10 flex justify-center bg-[#F8D4D8] py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl w-full px-6">
+          {/* <h2 className="text-4xl font-bold text-center text-gray">Nos Créations</h2> */}
+          {/* <Carroussel /> */}
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div
+              key={i}
+              className="rounded-xl overflow-hidden border-4 border-amber-50 aspect-[4/5] relative"
+            >
+              <Image
+                src="/images/image-salon.jpg"
+                alt="Décoration"
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          ))}
+        </div>
       </section>
+
+
       <section className="py-16 bg-gray-50 rounded-3xl mb-30">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Nos Services</h2>
           <h3 className="text-center text-2xl font-bold">Creation pour vos différents évènements</h3>
 
-          <div className="grid gap-20 md:grid-cols-2 lg:grid-cols-3 my-30 items-stretch">
-            {/* {tags.map((tag, index) => (
-              <CardService key={index} bgClass="bg-blue-100" title={tag} description="Création de décors sur mesure pour vos évènements, avec des thèmes sur mesure et une ambiance conviviale."
-                onClick={() => router.push(`/galerie/${tag}`)}
-              />
-            ))} */}
+          <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-20 px-10 items-stretch">
 
             <CardService
               bgClass="bg-blue-100"
@@ -117,7 +133,7 @@ export default function Home() {
             <p className="mt-2 text-gray-500 text-sm">
               Livraison, installation et retrait inclus si nécessaire. Vous profitez, nous nous occupons de tout !
             </p>
-            <ContactButton text="Contactez-nous" className={"mt-20 py-3.5 px-12 hover:bg-red-600 hover:scale-105 transition-transform duration-300 "} />
+            <ContactButton text="Contactez-nous" className={"mt-20 py-3.5 px-12 hover:hover:bg-[#51c99d] hover:scale-105 transition-transform duration-300 "} />
           </div>
 
         </div>
