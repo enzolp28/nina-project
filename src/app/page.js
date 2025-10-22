@@ -12,8 +12,10 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const router = useRouter()
   const [tags, setTags] = useState([])
+  const [inView, setInView] = useState(false)
 
   useEffect(() => {
+    setInView(true)
     const fetchTags = async () => {
 
       try {
@@ -34,11 +36,11 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="  mt-30 ">
+    <main className=" mt-30 ">
       <div className="flex justify-between gap-10 bg-[#CDEFF3] pb-20">
         <div className="relative w-1/3 mx-auto">
-          <div className="absolute bottom-5 left-5 w-full h-full bg-[#fdcfd3] rounded-xl"></div>
-          <section className="border relative h-full flex flex-col gap-10 justify-center bg-[#bfd8cf] rounded-xl p-6" >
+          <div className="absolute bottom-5 left-5 w-full h-full bg-[#fdcfd3] "></div>
+          <section className="border-2 border-amber-50 relative h-full flex flex-col gap-10 justify-center bg-[#bfd8cf]  p-6" >
             <h1 className="text-4xl font-bold text-stone-50">TooManyBalloons</h1>
             <p >Chez [Nom de ton entreprise], nous mettons notre créativité et notre savoir-faire au service de vos plus beaux moments. Que ce soit pour un anniversaire, une réception, les fêtes de Noël, ou toute autre occasion spéciale, nous vous accompagnons pour créer une ambiance unique, chaleureuse et inoubliable.
               Chaque événement est une histoire, et notre mission est de la sublimer grâce à des services personnalisés et adaptés à vos envies. Vous avez une idée ? Nous la transformons en réalité. Vous cherchez l’inspiration ? Nous sommes là pour vous guider.
@@ -48,16 +50,26 @@ export default function Home() {
         {/* <div className="w-1/3 flex justify-center items-center ">
           <div className="h-60 border border-gray-300"></div>
         </div> */}
-        <section className="w-1/2 flex justify-center">
-          <Image src='/images/image-salon.jpg' width={500} height={600} alt={'Logo'} className="rounded-xl" />
-          {/* <TransitionImage /> */}
+        <section className="w-1/2 flex justify-center overflow-hidden">
+          <div
+            // 4) classes fixes (transition + perf + accessibilité)
+            // 5) ET la partie qui change selon inView (initial vs final)
+            className={
+              `transform-gpu transition-all duration-700 ease-out
+              ${inView ? "translate-x-0 opacity-100" : "translate-x-24 opacity-0"}
+              motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100`
+            }
+          >
+
+            <Image src='/images/image-salon.jpg' width={500} height={600} alt={'Logo'} className="border-4 border-amber-50" />
+          </div>
         </section>
       </div>
 
-      <section className="mt-10 flex justify-center bg-[#F8D4D8] py-20">
+      <section className="mt-10 flex justify-center bg-[#F8D4D8] py-20 border-t-4 border-amber-50">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl w-full px-6">
 
-          {Array.from({ length: 6 }).map((_, i) => (
+          {Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
               className="rounded-xl overflow-hidden border-4 border-amber-50 aspect-[4/5] relative"
@@ -75,7 +87,7 @@ export default function Home() {
       </section>
 
 
-      <section className="py-16 bg-gray-50 rounded-3xl mb-30">
+      <section className="py-16 bg-gray-50  mb-30">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Nos Services</h2>
           <h3 className="text-center text-2xl font-bold">Creation pour vos différents évènements</h3>
