@@ -31,13 +31,14 @@
     {
         "id": 4,
         "type": "video",
-        "src": "/images/Animals_Puppiness.mp4",
+        "src": "/images/agence-stvalentin.mp4",
         "muted": true,
         "autoPlay": false,
         "loop": false,
         "controls": true,
         "tags": [
-            "entreprise"
+            "entreprise",
+            "saint valentin"
         ]
     },
     {
@@ -57,6 +58,20 @@
         "alt": "Agence immobilière halloween",
         "tags": [
             "halloween",
+            "entreprise"
+        ]
+    },
+    {
+        "id": 7,
+        "type": "video",
+        "src": "/images/agence-rentrer_scolaire.mp4",
+        "alt": "vidéo Agence immobilière rentré scolaire",
+        "muted": true,
+        "autoPlay": false,
+        "loop": false,
+        "controls": true,
+        "tags": [
+            "scolaire",
             "entreprise"
         ]
     }

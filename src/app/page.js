@@ -17,7 +17,7 @@ export default function Home() {
     const fetchTags = async () => {
 
       try {
-        const res = await fetch('/data/tags.json')
+        const res = await fetch('/data/images.json')
         const data = await res.json()
         const allTags = data.flatMap(item => item.tags)
         const uniqueTags = [...new Set(allTags)]
@@ -56,8 +56,7 @@ export default function Home() {
 
       <section className="mt-10 flex justify-center bg-[#F8D4D8] py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl w-full px-6">
-          {/* <h2 className="text-4xl font-bold text-center text-gray">Nos Créations</h2> */}
-          {/* <Carroussel /> */}
+
           {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
@@ -68,6 +67,7 @@ export default function Home() {
                 alt="Décoration"
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
           ))}

@@ -8,7 +8,7 @@ export default function DropDown({ title, content }) {
     return (
         <>
             <div className='flex flex-col items-center w-[60%] '>
-                <div className=" flex justify-between items-center w-full bg-[#268b9d] rounded-xl p-[15px] z-[2] cursor-pointer" onClick={() => setOpen(!open)}>
+                <div className=" flex justify-between items-center w-full bg-[#268b9d] border-2 rounded-xl p-[15px] z-[2] cursor-pointer" onClick={() => setOpen(!open)}>
                     <h3 className='font-bold text-[18px] leading-[25px] text-white'>{title}</h3>
                     <img src="./images/arrow.svg" alt="flèche menu" className={`transition-transform duration-[600ms] ease-in-out  ${open ? 'rotate-180' : ''}`} />
                 </div>
