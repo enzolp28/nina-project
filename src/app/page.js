@@ -61,12 +61,12 @@ export default function Home() {
             }
           >
 
-            <Image src='/images/image-salon.jpg' width={500} height={600} alt={'Logo'} className="border-4 border-amber-50" />
+            <Image src='/images/anniv-un.jpg' width={500} height={600} alt={'Logo'} className="border-4 border-amber-50" />
           </div>
         </section>
       </div>
 
-      <section className="mt-10 flex justify-center bg-[#F8D4D8] py-20 border-t-4 border-amber-50">
+      <section className="mt-10 flex justify-center bg-[#F7D7D2] py-20 border-t-4 border-amber-50">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl w-full px-6">
 
           {Array.from({ length: 3 }).map((_, i) => (

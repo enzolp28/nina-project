@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function MediaFactory({ item, className = "", onClick }) {
     if (!item?.type || !item?.src) return null;
 
-    const commonClasses = "relative w-full aspect-[4/3] overflow-hidden rounded-xl cursor-pointer";
+    const commonClasses = "border-4 border-amber-50 relative w-full aspect-[4/3] overflow-hidden  cursor-pointer hover:scale-105 transition-transform duration-300 " + className;
 
 
 

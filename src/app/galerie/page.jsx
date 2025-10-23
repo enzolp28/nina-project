@@ -64,7 +64,7 @@ export default function page() {
             <div className="max-w-6xl mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Galerie</h2>
 
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {images.map((item, index) => (
                         <MediaFactory key={item.id} item={item} onClick={() => handleOpenModal(index)} />
                     ))}
