@@ -112,7 +112,7 @@
         "src": "/images/saintval.jpg",
         "alt": "salon thème saint valentin",
         "tags": [
-            "salon",
+            "domicile",
             "saint valentin"
         ]
     },
@@ -122,7 +122,7 @@
         "src": "/images/saintval2.jpg",
         "alt": "salon thème saint valentin",
         "tags": [
-            "salon",
+            "domicile",
             "saint valentin"
         ]
     },
@@ -132,7 +132,7 @@
         "src": "/images/saintval3.jpg",
         "alt": "salon thème saint valentin",
         "tags": [
-            "salon",
+            "domicile",
             "saint valentin"
         ]
     },
@@ -156,6 +156,48 @@
             "agence",
             "noel",
             "entreprise"
+        ]
+    },
+    {
+        "id": 16,
+        "type": "image",
+        "src": "/images/agence-paques.jpg",
+        "alt": "agence immobilière thème pâques",
+        "tags": [
+            "agence",
+            "paques",
+            "entreprise"
+        ]
+    },
+    {
+        "id": 17,
+        "type": "image",
+        "src": "/images/agence-paques2.jpg",
+        "alt": "agence immobilière thème pâques",
+        "tags": [
+            "agence",
+            "paques",
+            "entreprise"
+        ]
+    },
+    {
+        "id": 18,
+        "type": "image",
+        "src": "/images/paques-salon.jpg",
+        "alt": "salon thème pâques",
+        "tags": [
+            "domicile",
+            "paques"
+        ]
+    },
+    {
+        "id": 19,
+        "type": "image",
+        "src": "/images/paques2.jpg",
+        "alt": "salon thème pâques",
+        "tags": [
+            "domicile",
+            "paques"
         ]
     }
 ]
