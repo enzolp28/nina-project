@@ -5,6 +5,7 @@ import ContactButton from "@/components/ContactButton";
 import Carroussel from "@/components/Carroussel";
 import CardService from "@/components/CardService";
 import DropDown from "@/components/DropDown";
+import ModalMedia from "@/components/ModalMedia";
 import { useRouter } from "next/navigation"
 import { useState, useEffect } from "react";
 
@@ -69,7 +70,7 @@ export default function Home() {
       <section className="mt-10 flex justify-center bg-[#F7D7D2] py-20 border-t-4 border-amber-50">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl w-full px-6">
 
-          {Array.from({ length: 3 }).map((_, i) => (
+          {/* {Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
               className="rounded-xl overflow-hidden border-4 border-amber-50 aspect-[4/5] relative"
@@ -82,7 +83,40 @@ export default function Home() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-          ))}
+          ))} */}
+          <div
+            className="rounded-xl flex justify-center  overflow-hidden border-4 border-amber-50 aspect-[4/5] relative"
+          >
+            <Image
+              src="/images/anniv-lapin.jpg"
+              alt="Décoration"
+              fill
+              className="object-cover transition-transform duration-300 hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+          <div
+            className="rounded-xl flex justify-center  overflow-hidden border-4 border-amber-50 aspect-[4/5] relative"
+          >
+            <Image
+              src="/images/saintval3.jpg"
+              alt="Décoration"
+              fill
+              className="object-cover transition-transform duration-300 hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+          <div
+            className="rounded-xl flex justify-center  overflow-hidden border-4 border-amber-50 aspect-[4/5] relative"
+          >
+            <Image
+              src="/images/pacque-salon.jpg"
+              alt="Décoration"
+              fill
+              className="object-cover transition-transform duration-300 hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
         </div>
       </section>
 

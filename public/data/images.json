@@ -2,34 +2,79 @@
     {
         "id": 1,
         "type": "image",
-        "src": "/images/ballon-1.jpg",
-        "alt": "Ballon 1",
-        "priority": true,
+        "src": "/images/agence_halloween.jpg",
+        "alt": "Agence immobilière halloween",
         "tags": [
-            "anniversaire",
-            "famille"
+            "entreprise",
+            "halloween"
         ]
     },
     {
         "id": 2,
         "type": "image",
-        "src": "/images/ballon-2.jpg",
-        "alt": "Ballons 2",
+        "src": "/images/agence_halloween2.jpg",
+        "alt": "Agence immobilière halloween",
         "tags": [
+            "halloween",
             "entreprise"
         ]
     },
     {
         "id": 3,
         "type": "image",
-        "src": "/images/ballon-3.jpg",
-        "alt": "Food",
+        "src": "/images/agence_halloween-interieur.jpg",
+        "alt": "Agence immobilière halloween",
         "tags": [
-            "domicile"
+            "halloween",
+            "entreprise"
         ]
     },
     {
         "id": 4,
+        "type": "image",
+        "src": "/images/agence_halloween-interieur2.jpg",
+        "alt": "Agence immobilière halloween",
+        "tags": [
+            "halloween",
+            "entreprise"
+        ]
+    },
+    {
+        "id": 5,
+        "type": "video",
+        "src": "/images/agence-rentrer_scolaire.mp4",
+        "alt": "vidéo Agence immobilière rentré scolaire",
+        "muted": true,
+        "autoPlay": false,
+        "loop": false,
+        "controls": true,
+        "tags": [
+            "scolaire",
+            "entreprise"
+        ]
+    },
+    {
+        "id": 6,
+        "type": "image",
+        "src": "/images/agence-rentrer_scolaire1.jpg",
+        "alt": "Agence immobilière rentré scolaire",
+        "tags": [
+            "scolaire",
+            "entreprise"
+        ]
+    },
+    {
+        "id": 7,
+        "type": "image",
+        "src": "/images/agence-rentrer_scolaire_interieur.jpg",
+        "alt": "Agence immobilière rentré scolaire",
+        "tags": [
+            "scolaire",
+            "entreprise"
+        ]
+    },
+    {
+        "id": 8,
         "type": "video",
         "src": "/images/agence-stvalentin.mp4",
         "muted": true,
@@ -42,36 +87,74 @@
         ]
     },
     {
-        "id": 5,
+        "id": 9,
         "type": "image",
-        "src": "/images/agence_halloween.jpg",
-        "alt": "Agence immobilière halloween",
+        "src": "/images/agence-saintval2.jpg",
+        "alt": "Agence immobilière thème saint valentin",
         "tags": [
             "entreprise",
-            "halloween"
+            "saint valentin"
         ]
     },
     {
-        "id": 6,
+        "id": 10,
         "type": "image",
-        "src": "/images/agence_halloween2.jpg",
-        "alt": "Agence immobilière halloween",
+        "src": "/images/agence-saintval3.jpg",
+        "alt": "Agence immobilière thème saint valentin",
         "tags": [
-            "halloween",
+            "entreprise",
+            "saint valentin"
+        ]
+    },
+    {
+        "id": 11,
+        "type": "image",
+        "src": "/images/saintval.jpg",
+        "alt": "salon thème saint valentin",
+        "tags": [
+            "salon",
+            "saint valentin"
+        ]
+    },
+    {
+        "id": 12,
+        "type": "image",
+        "src": "/images/saintval2.jpg",
+        "alt": "salon thème saint valentin",
+        "tags": [
+            "salon",
+            "saint valentin"
+        ]
+    },
+    {
+        "id": 13,
+        "type": "image",
+        "src": "/images/saintval3.jpg",
+        "alt": "salon thème saint valentin",
+        "tags": [
+            "salon",
+            "saint valentin"
+        ]
+    },
+    {
+        "id": 14,
+        "type": "image",
+        "src": "/images/agence-noel.jpg",
+        "alt": "agence immobilière thème noel",
+        "tags": [
+            "agence",
+            "noel",
             "entreprise"
         ]
     },
     {
-        "id": 7,
-        "type": "video",
-        "src": "/images/agence-rentrer_scolaire.mp4",
-        "alt": "vidéo Agence immobilière rentré scolaire",
-        "muted": true,
-        "autoPlay": false,
-        "loop": false,
-        "controls": true,
+        "id": 15,
+        "type": "image",
+        "src": "/images/agence-noel2.jpg",
+        "alt": "agence immobilière thème noel",
         "tags": [
-            "scolaire",
+            "agence",
+            "noel",
             "entreprise"
         ]
     }
