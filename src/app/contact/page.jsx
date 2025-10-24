@@ -168,7 +168,7 @@ export default function page() {
                 <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="rounded-xl bg-red-500 px-6 py-3 font-medium text-white transition hover:bg-red-600 cursor-pointer disabled:cursor-not-allowed disabled:opacity-60"
+                    className="rounded-xl px-6 py-3 bg-[#a5d8c5] font-medium text-white transition hover:hover:bg-[#51c99d] hover:scale-105 cursor-pointer disabled:cursor-not-allowed disabled:opacity-60"
                 >
                     {status === 'loading' ? 'Envoi…' : 'Envoyer'}
                 </button>
