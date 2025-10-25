@@ -34,7 +34,7 @@ export default function DropDown({ title, content }) {
                     className="bg-amber-50 w-full rounded-md -mt-[10px] mb-[10px] max-h-0 overflow-hidden transition-all duration-[900ms] ease-in-out"
                     style={{ maxHeight: open ? `${contentRef.current?.scrollHeight}px` : "0px" }}
                 >
-                    <p className="p-[15px] ">{content}</p>
+                    <p className="p-[15px] text-[16px] text-[#268b9db7] font-bold">{content}</p>
                 </div>
             </div>
         </>

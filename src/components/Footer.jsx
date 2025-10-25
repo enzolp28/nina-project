@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from "next/link"
 
 
 export default function Footer() {
@@ -33,7 +34,9 @@ export default function Footer() {
             <section className='flex flex-col gap-5'>
                 <h3 className='font-bold text-lg '>Contact</h3>
                 <ul className='flex flex-col gap-2 text-xs'>
-                    <li>FAQ</li>
+                    <Link href={'/#faq'}>
+                        <li>FAQ</li>
+                    </Link>
                     <li>Conditions générales</li>
                     <li>Mention légale</li>
                 </ul>

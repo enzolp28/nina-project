@@ -62,7 +62,12 @@ export default function page() {
     return (
         <section className="py-16 mt-20">
             <div className="max-w-6xl mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Galerie</h2>
+                <h1 className="relative inline-block text-5xl font-extrabold text-stone-700 my-30">
+                    <span className="absolute -inset-2 translate-x-2 translate-y-2 bg-[#fdcfd3] rounded-md -z-10"></span>
+                    <span className="relative bg-[#268b9db7] px-4 py-1 rounded-md border-2 border-amber-50 text-amber-50">
+                        Galerie de photos
+                    </span>
+                </h1>
 
                 <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {images.map((item, index) => (
@@ -79,67 +84,6 @@ export default function page() {
                         totalItems={images.length}
                         currentIndex={currentIndex}
                     />
-
-                    // <div
-                    //     className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/30 backdrop-blur z-5000"
-                    //     onClick={handleCloseModal}
-                    // >
-                    //     <button
-                    //         className="absolute top-15 right-20 text-white text-3xl z-10 hover:cursor-pointer hover:scale-110 transition duration-200"
-                    //         onClick={handleCloseModal}
-                    //         aria-label="Fermer la modale"
-                    //     >
-                    //         <FaTimes />
-                    //     </button>
-                    //     <div className="relative max-w-4xl" onClick={(event) => event.stopPropagation()} >
-
-                    //         <div className="relative flex items-center justify-center">
-
-
-                    //         </div>
-
-                    //         <button
-                    //             className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer z-10 hover:scale-130 transition duration-200"
-                    //             onClick={goPrev}
-                    //             aria-label="Image précédente">
-                    //             <FaChevronLeft />
-                    //         </button>
-                    //         {selectedMedia.type === "image" && (
-                    //             <div className="relative max-w-4xl w-full">
-                    //                 <div className="relative w-[800px] h-[600px]">
-                    //                     <Image
-                    //                         src={selectedMedia.src}
-                    //                         alt={selectedMedia.alt ?? ""}
-                    //                         fill
-                    //                         className="object-contain rounded-lg"
-                    //                         sizes="(max-width: 768px) 100vw, 60vw"
-                    //                     />
-                    //                 </div>
-                    //             </div>
-
-                    //         )}
-                    //         {selectedMedia.type === "video" && (
-                    //             <video
-                    //                 src={selectedMedia.src}
-                    //                 poster={selectedMedia.poster}
-                    //                 controls
-                    //                 autoPlay
-                    //                 muted
-                    //                 loop
-                    //                 playsInline
-                    //             />
-                    //         )}
-                    //         <button
-                    //             className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl cursor-pointer z-10 hover:scale-130 transition duration-200"
-                    //             onClick={goNext}
-                    //             aria-label="Image suivante
-                    //             "
-                    //         >
-                    //             <FaChevronRight />
-                    //         </button>
-                    //     </div>
-
-                    // </div>
                 )}
             </div>
         </section>

@@ -184,12 +184,14 @@ export default function Home() {
 
         </div>
       </section>
-      <section className="mb-30">
+      <section className="mb-30 scroll-mt-24" id="faq" >
         <h3 className="text-center text-2xl font-bold">FAQ</h3>
         <div className="display flex flex-col items-center gap-10 my-30">
-          <DropDown title={"sded"} content={"lorem"} />
-          <DropDown title={"sded"} content={"fdfefe"} />
-          <DropDown title={"sded"} content={"fdfefe"} />
+          <DropDown
+            title={"Comment obtenir un devis ?"}
+            content={"Envoyez votre date, lieu, photos d’inspiration et budget : on vous répond sous 24–48h avec une proposition claire"} />
+          <DropDown title={"Puis-je choisir mes couleurs / thème"} content={"fdfefe"} />
+          <DropDown title={"Combien de temps à l’avance faut-il réserver ?"} content={"déalement 2–4 semaines ; possible en dernière minute selon dispo."} />
 
 
         </div>

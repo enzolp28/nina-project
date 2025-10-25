@@ -23,7 +23,7 @@ export default function Nav() {
                 <span className={`font-semibold ${pathname === '/galerie' ? 'text-[#f6959f] underline underline-offset-4' : ''}`}>
                     <Link href={'/galerie'}>Galerie</Link>
                 </span>
-                <ContactButton text={"Contact"} className={"py-2 px-8 ml-5 hover:bg-[#51c99d] "} />
+                <ContactButton text={"Contact"} className={"py-2 px-8 ml-5 transition hover:bg-[#51c99d] hover:scale-105 "} />
             </div>
         </nav>
     )

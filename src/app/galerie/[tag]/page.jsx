@@ -15,6 +15,7 @@ export default function GalerieTag() {
             try {
                 const res = await fetch("/data/images.json")
                 const data = await res.json()
+                console.log("dataaaa : ", data);
                 const filtered = data.filter((image) => image.tags.includes(tag))
                 setImages(filtered)
             } catch (err) {
