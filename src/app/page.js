@@ -110,7 +110,7 @@ export default function Home() {
             className="rounded-xl flex justify-center  overflow-hidden border-4 border-amber-50 aspect-[4/5] relative"
           >
             <Image
-              src="/images/pacque-salon.jpg"
+              src="/images/paques-salon.jpg"
               alt="Décoration"
               fill
               className="object-cover transition-transform duration-300 hover:scale-105"
@@ -189,9 +189,9 @@ export default function Home() {
         <div className="display flex flex-col items-center gap-10 my-30">
           <DropDown
             title={"Comment obtenir un devis ?"}
-            content={"Envoyez votre date, lieu, photos d’inspiration et budget : on vous répond sous 24–48h avec une proposition claire"} />
-          <DropDown title={"Puis-je choisir mes couleurs / thème"} content={"fdfefe"} />
-          <DropDown title={"Combien de temps à l’avance faut-il réserver ?"} content={"déalement 2–4 semaines ; possible en dernière minute selon dispo."} />
+            content={"Envoyez votre date, lieu, photos d’inspiration et budget : on vous répond dans les plus brefs delais avec une proposition."} />
+          <DropDown title={"Proposez-vous des décos simples comme des projets plus complexes ?"} content={"Oui. De la petite touche (bouquet, mini arche, table ballon) aux installations plus poussées (arche organique XXL, mur, plafond), on s’adapte au lieu, au budget et au temps."} />
+          <DropDown title={"Combien de temps à l’avance faut-il réserver ?"} content={"Il faut reserver idéalement 2–4 semaines avant ; possible en dernière minute selon dispo."} />
 
 
         </div>
