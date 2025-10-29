@@ -31,6 +31,7 @@ export default function MediaFactory({ item, className = "", onClick }) {
             <div className={commonClasses} onClick={onClick}>
                 <video
                     src={item.src}
+                    alt={item.alt || ""}
                     poster={item.poster}
                     controls={item.controls ?? true}
                     autoPlay={item.autoPlay ?? false}
