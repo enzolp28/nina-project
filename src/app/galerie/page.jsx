@@ -60,12 +60,12 @@ export default function page() {
 
 
     return (
-        <section className="py-16 mt-20">
+        <section className="py-16 mt-10">
             <div className="max-w-6xl mx-auto px-4">
-                <h1 className="relative inline-block text-5xl font-extrabold text-stone-700 my-30">
-                    <span className="absolute -inset-2 translate-x-2 translate-y-2 bg-[#fdcfd3] rounded-md -z-10"></span>
-                    <span className="relative bg-[#268b9db7] px-4 py-1 rounded-md border-2 border-amber-50 text-amber-50">
-                        Galerie de photos
+                <h1 className="relative inline-block text-3xl leading-tight tracking-tight font-extrabold text-stone-700 my-8 text-center md:text-left md:text-5xl md:my-12">
+                    <span className="absolute -inset-1 translate-x-1.5 translate-y-1.5 bg-[#fdcfd3] rounded-lg -z-10 md:-inset-2 md:translate-x-2 md:translate-y-2"></span>
+                    <span className="relative bg-[#268b9db7] px-3 py-1 rounded-md border-2 border-amber-50 text-amber-50">
+                        Galerie photos
                     </span>
                 </h1>
 

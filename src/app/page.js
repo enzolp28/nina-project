@@ -48,13 +48,9 @@ export default function Home() {
               Faites de chaque moment une célébration à votre image.</p>
           </section>
         </div>
-        {/* <div className="w-1/3 flex justify-center items-center ">
-          <div className="h-60 border border-gray-300"></div>
-        </div> */}
+
         <section className="order-1 md:order-2 w-full md:w-1/2 flex justify-center overflow-hidden">
           <div
-            // 4) classes fixes (transition + perf + accessibilité)
-            // 5) ET la partie qui change selon inView (initial vs final)
             className={
               `transform-gpu transition-all duration-700 ease-out
               ${inView ? "translate-x-0 opacity-100" : "translate-x-24 opacity-0"}
@@ -109,8 +105,8 @@ export default function Home() {
 
       <section className="py-16 bg-gray-50  mb-30">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Nos Services</h2>
-          <h3 className="text-center text-2xl font-bold">Creation pour vos différents évènements</h3>
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12">Nos Services</h2>
+          <h3 className="text-xl text-center md:text-2xl font-bold">Creation pour vos différents évènements</h3>
 
           <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-20 px-10 items-stretch">
 

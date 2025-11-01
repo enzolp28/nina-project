@@ -16,7 +16,7 @@ export default function DropDown({ title, content }) {
 
 
                     <div
-                        className="flex justify-between items-center w-full h-14 bg-[#bfd8cf] border-2 border-amber-50 px-[5px] rounded-md md:px-[15px] z-[1] cursor-pointer"
+                        className="flex justify-between items-center w-full h-14 bg-[#bfd8cf] border-2 border-amber-50 px-[10px] rounded-md md:px-[15px] z-[1] cursor-pointer"
                         onClick={() => setOpen(!open)}
                     >
                         <h3 className="font-bold text-[14px] md:text-[18px] leading-[25px] text-white ">{title}</h3>
@@ -34,7 +34,7 @@ export default function DropDown({ title, content }) {
                     className="bg-amber-50 w-full rounded-md -mt-[10px] mb-[10px] max-h-0 overflow-hidden transition-all duration-[900ms] ease-in-out"
                     style={{ maxHeight: open ? `${contentRef.current?.scrollHeight}px` : "0px" }}
                 >
-                    <p className="p-[15px] text-[16px] text-[#268b9db7] font-bold">{content}</p>
+                    <p className="p-[15px] text-[13px] md:text-[16px] text-[#268b9db7] font-bold">{content}</p>
                 </div>
             </div>
         </>

@@ -44,10 +44,14 @@ export default function GalerieTag() {
     console.log(images);
 
     return (
-        <section className="px-20 py-30">
-            <h2 className="text-3xl font-bold text-center mb-20 capitalize">
-                Galerie : {tag}
-            </h2>
+        <section className="px-8 py-30">
+            <h1 className="relative inline-block text-3xl leading-tight tracking-tight font-extrabold text-stone-700 my-8 text-center md:text-left md:text-5xl md:my-12">
+                <span className="absolute -inset-1 translate-x-1.5 translate-y-1.5 bg-[#fdcfd3] rounded-lg -z-10 md:-inset-2 md:translate-x-2 md:translate-y-2"></span>
+                <span className="relative bg-[#268b9db7] px-3 py-1 rounded-md border-2 border-amber-50 text-amber-50">
+                    Galerie : {tag}
+                </span>
+            </h1>
+
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {images.length > 0 ? (
