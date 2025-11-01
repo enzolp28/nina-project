@@ -37,12 +37,12 @@ export default function Home() {
   }, [])
 
   return (
-    <main className=" mt-30 ">
-      <div className="flex justify-between gap-10 bg-[#CDEFF3] pb-20">
-        <div className="relative w-1/3 mx-auto">
+    <main className="mt-30 ">
+      <div className="flex flex-col  md:flex md:flex-row justify-between gap-10 bg-[#CDEFF3] pb-20 ">
+        <div className="mt-20 order-2 w-[80%] md:order-1 relative md:w-1/3 mx-auto">
           <div className="absolute bottom-5 left-5 w-full h-full bg-[#fdcfd3] "></div>
           <section className="border-2 border-amber-50 relative h-full flex flex-col gap-10 justify-center bg-[#bfd8cf]  p-6" >
-            <h1 className="text-4xl font-bold text-stone-50">TooManyBalloons</h1>
+            <h1 className="text-4xl font-bold text-stone-50 break-words">TooManyBalloons</h1>
             <p >Chez [Nom de ton entreprise], nous mettons notre créativité et notre savoir-faire au service de vos plus beaux moments. Que ce soit pour un anniversaire, une réception, les fêtes de Noël, ou toute autre occasion spéciale, nous vous accompagnons pour créer une ambiance unique, chaleureuse et inoubliable.
               Chaque événement est une histoire, et notre mission est de la sublimer grâce à des services personnalisés et adaptés à vos envies. Vous avez une idée ? Nous la transformons en réalité. Vous cherchez l’inspiration ? Nous sommes là pour vous guider.
               Faites de chaque moment une célébration à votre image.</p>
@@ -51,7 +51,7 @@ export default function Home() {
         {/* <div className="w-1/3 flex justify-center items-center ">
           <div className="h-60 border border-gray-300"></div>
         </div> */}
-        <section className="w-1/2 flex justify-center overflow-hidden">
+        <section className="order-1 mx-auto w-[] md:order-2 md:w-1/2 flex justify-center overflow-hidden">
           <div
             // 4) classes fixes (transition + perf + accessibilité)
             // 5) ET la partie qui change selon inView (initial vs final)
@@ -70,20 +70,6 @@ export default function Home() {
       <section className="mt-10 flex justify-center bg-[#F7D7D2] py-20 border-t-4 border-amber-50">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl w-full px-6">
 
-          {/* {Array.from({ length: 3 }).map((_, i) => (
-            <div
-              key={i}
-              className="rounded-xl overflow-hidden border-4 border-amber-50 aspect-[4/5] relative"
-            >
-              <Image
-                src="/images/image-salon.jpg"
-                alt="Décoration"
-                fill
-                className="object-cover transition-transform duration-300 hover:scale-105"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-          ))} */}
           <div
             className="rounded-xl flex justify-center  overflow-hidden border-4 border-amber-50 aspect-[4/5] relative"
           >

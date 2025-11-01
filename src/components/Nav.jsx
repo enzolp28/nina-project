@@ -80,6 +80,13 @@ export default function Nav() {
                                 </li>
                                 <li>
                                     <Link
+                                        href="/"
+                                        onClick={closeMobile}
+                                        className={`block px-3 py-3 rounded-lg ${pathname === "/" ? "text-[#f6959f]" : ""}`}
+                                    >
+                                        Accueil
+                                    </Link>
+                                    <Link
                                         href="/galerie"
                                         onClick={closeMobile}
                                         className={`block px-3 py-3 rounded-lg ${pathname === "/galerie" ? "text-[#f6959f]" : ""}`}
