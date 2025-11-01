@@ -13,6 +13,13 @@ export default function Nav() {
     const toggleMobile = useCallback(() => setMobileOpen(v => !v), [])
     const closeMobile = useCallback(() => setMobileOpen(false), [])
 
+    // Fermer le menu dès que la route change
+    useEffect(() => {
+        if (mobileOpen) setMobileOpen(false)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [pathname])
+
+
     return (
 
         <>
@@ -64,12 +71,12 @@ export default function Nav() {
                         id="mobile-menu"
                         role="dialog"
                         aria-modal="true"
-                        className="absolute top-0 right-0 h-full w-[78%] max-w-xs bg-[#CDEFF3] border-l border-white/40 p-4 overflow-y-auto
+                        className="absolute top-0 right-0 h-1/2 w-[58%] max-w-xs bg-[#CDEFF3] border-l border-white/40 p-4 overflow-y-auto
                  transition-transform duration-300 translate-x-0 will-change-transform"
                     >
-                        <nav>
+                        <nav className="flex justify-center text-center">
                             <ul className="flex flex-col gap-2">
-                                <li>
+                                <li >
                                     <Link
                                         href="/"
                                         onClick={closeMobile}
@@ -82,14 +89,14 @@ export default function Nav() {
                                     <Link
                                         href="/"
                                         onClick={closeMobile}
-                                        className={`block px-3 py-3 rounded-lg ${pathname === "/" ? "text-[#f6959f]" : ""}`}
+                                        className={`block px-3 py-3 font-bold rounded-lg ${pathname === "/" ? "text-[#f6959f]" : ""}`}
                                     >
                                         Accueil
                                     </Link>
                                     <Link
                                         href="/galerie"
                                         onClick={closeMobile}
-                                        className={`block px-3 py-3 rounded-lg ${pathname === "/galerie" ? "text-[#f6959f]" : ""}`}
+                                        className={`block px-3 py-3  font-bold  rounded-lg ${pathname === "/galerie" ? "text-[#f6959f]" : ""}`}
                                     >
                                         Galerie
                                     </Link>
@@ -97,7 +104,7 @@ export default function Nav() {
                                 <li className="pt-2">
                                     <ContactButton
                                         text="Contact"
-                                        className="w-full text-center py-3 rounded-xl bg-[#fdcfd3] border border-white/40"
+                                        className="w-[full text-center py-3 px-8 mt-10 rounded-xl bg-[#fdcfd3] border border-white/40"
                                         /* si ContactButton n'accepte pas onClick, tu peux wrapper dans un Link ou laisser sans */
                                         onClick={closeMobile}
                                     />
