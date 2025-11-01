@@ -103,7 +103,7 @@ export default function Home() {
       </section>
 
 
-      <section className="py-16 bg-gray-50  mb-30">
+      <section className="py-16 bg-gray-50  mb-30 scroll-mt-24" id="services">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12">Nos Services</h2>
           <h3 className="text-xl text-center md:text-2xl font-bold">Creation pour vos différents évènements</h3>
@@ -174,8 +174,6 @@ export default function Home() {
             content={"Envoyez votre date, lieu, photos d’inspiration et budget : on vous répond dans les plus brefs delais avec une proposition."} />
           <DropDown title={"Proposez-vous des décos simples comme des projets plus complexes ?"} content={"Oui. De la petite touche (bouquet, mini arche, table ballon) aux installations plus poussées (arche organique XXL, mur, plafond), on s’adapte au lieu, au budget et au temps."} />
           <DropDown title={"Combien de temps à l’avance faut-il réserver ?"} content={"Il faut reserver idéalement 2–4 semaines avant ; possible en dernière minute selon dispo."} />
-
-
         </div>
       </section>
     </main>
