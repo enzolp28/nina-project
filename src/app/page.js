@@ -51,7 +51,7 @@ export default function Home() {
         {/* <div className="w-1/3 flex justify-center items-center ">
           <div className="h-60 border border-gray-300"></div>
         </div> */}
-        <section className="order-1 mx-auto w-[] md:order-2 md:w-1/2 flex justify-center overflow-hidden">
+        <section className="order-1 md:order-2 w-full md:w-1/2 flex justify-center overflow-hidden">
           <div
             // 4) classes fixes (transition + perf + accessibilité)
             // 5) ET la partie qui change selon inView (initial vs final)
@@ -62,7 +62,7 @@ export default function Home() {
             }
           >
 
-            <Image src='/images/anniv-un.jpg' width={500} height={600} alt={'Logo'} className="border-4 border-amber-50" />
+            <Image src='/images/anniv-un.jpg' width={500} height={600} alt={'Logo'} className="border-4 border-amber-50 mx-auto w-full max-w-[80%] " />
           </div>
         </section>
       </div>
