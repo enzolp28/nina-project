@@ -108,17 +108,16 @@ export default function page() {
     }, [showModal, router])
 
     return (
-        <div className="mx-auto max-w-3xl px-6 py-16 mt-20">
-            <h1 className="relative inline-block text-4xl font-extrabold text-stone-700">
-                <span className="absolute -inset-2 translate-x-2 translate-y-2 bg-[#fdcfd3] rounded-md -z-10"></span>
-                <span className="relative bg-[#268b9db7] px-4 py-1 rounded-md border-2 border-amber-50 text-amber-50">
+        <div className="mx-auto max-w-3xl px-6 py-14 mt-10">
+            <h1 className="relative inline-block text-3xl leading-tight tracking-tight font-extrabold text-stone-700 my-3 text-center md:text-left md:text-5xl md:my-12">
+                <span className="absolute -inset-1 translate-x-1.5 translate-y-1.5 bg-[#fdcfd3] rounded-lg -z-10 md:-inset-2 md:translate-x-2 md:translate-y-2"></span>
+                <span className="relative bg-[#268b9db7] px-3 py-1 rounded-md border-2 border-amber-50 text-amber-50">
                     Formulaire de contact
                 </span>
             </h1>
 
-
-            <form onSubmit={handleSubmit} className="mt-20 flex flex-col gap-5">
-                <label htmlFor="nom_prenom">Votre nom et prénom :</label>
+            <form onSubmit={handleSubmit} className="mt-10 md:mt-20 flex flex-col gap-5">
+                <label htmlFor="nom_prenom" className="text-xl">Votre nom et prénom :</label>
                 <div className="relative">
                     <input
                         ref={nomRef}
@@ -136,7 +135,7 @@ export default function page() {
                     )}
                 </div>
                 {errorMessage.nom && <p className="text-red-500">{errorMessage.nom}</p>}
-                <label htmlFor="email">Votre email :</label>
+                <label htmlFor="email" className="text-xl">Votre email :</label>
                 <div className="relative">
                     <input
                         ref={emailRef}
@@ -154,7 +153,7 @@ export default function page() {
                     )}
                 </div>
                 {errorMessage.email && <p className="text-red-500">{errorMessage.email}</p>}
-                <label htmlFor="message">Expliquez-nous votre projet :</label>
+                <label htmlFor="message" className="text-xl">Expliquez-nous votre projet :</label>
 
                 <div className="relative">
                     <textarea
@@ -175,7 +174,7 @@ export default function page() {
                 <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="rounded-xl px-6 py-3 bg-[#a5d8c5] text-white font-bold transition hover:hover:bg-[#51c99d] hover:scale-105 cursor-pointer disabled:cursor-not-allowed disabled:opacity-60"
+                    className="rounded-xl px-6 py-3 bg-[#a5d8c5] text-white font-bold transition md:hover:hover:bg-[#51c99d] hover:scale-105 cursor-pointer disabled:cursor-not-allowed disabled:opacity-60"
                 >
                     {status === 'loading' ? 'Envoi…' : 'Envoyer'}
                 </button>

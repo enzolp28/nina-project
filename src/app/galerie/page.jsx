@@ -60,7 +60,7 @@ export default function page() {
 
 
     return (
-        <section className="py-16 mt-10">
+        <section className="mt-10 py-10 md:py-16  md:mt-20">
             <div className="max-w-6xl mx-auto px-4">
                 <h1 className="relative inline-block text-3xl leading-tight tracking-tight font-extrabold text-stone-700 my-8 text-center md:text-left md:text-5xl md:my-12">
                     <span className="absolute -inset-1 translate-x-1.5 translate-y-1.5 bg-[#fdcfd3] rounded-lg -z-10 md:-inset-2 md:translate-x-2 md:translate-y-2"></span>
