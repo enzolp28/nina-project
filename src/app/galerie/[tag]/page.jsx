@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react"
 import { useParams } from "next/navigation"
 import ModalMedia from "@/components/ModalMedia"
 import MediaFactory from "@/components/MediaFactory"
+import Link from "next/link"
 
 export default function GalerieTag() {
     const { tag } = useParams()
@@ -63,9 +64,14 @@ export default function GalerieTag() {
                         />
                     ))
                 ) : (
-                    <p className="text-center text-gray-500">
-                        Aucune image trouvée pour cette catégorie.
-                    </p>
+                    <div className="flex flex-col  gap-4">
+                        <p className=" text-gray-500">
+                            Aucune image trouvée pour cette catégorie.
+                        </p>
+                        <div className="bg-[#268b9d8e] border-2 border-amber-50 text-amber-50 p-2 rounded-md w-[50%] ">
+                            <Link href="/">↩️ Page d’accueil</Link>
+                        </div>
+                    </div>
                 )}
             </div>
 
