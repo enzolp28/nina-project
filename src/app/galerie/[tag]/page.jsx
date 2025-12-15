@@ -66,9 +66,9 @@ export default function GalerieTag() {
                 ) : (
                     <div className="flex flex-col  gap-4">
                         <p className=" text-gray-500">
-                            Aucune image trouvée pour cette catégorie.
+                            Il n'y a pour l'instant aucune image pour ce thème.
                         </p>
-                        <div className="bg-[#268b9d8e] border-2 border-amber-50 text-amber-50 p-2 rounded-md w-[50%] ">
+                        <div className="bg-[#268b9d8e] border-2 border-amber-50 text-amber-50 p-2 rounded-md w-[50%] hover:bg-[#268b9db7] hover:scale-110 transition duration-200">
                             <Link href="/">↩️ Page d’accueil</Link>
                         </div>
                     </div>

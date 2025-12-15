@@ -72,7 +72,7 @@ export default function Nav() {
                         role="dialog"
                         aria-modal="true"
                         className="absolute top-0 right-0 h-1/2 w-[58%] max-w-xs bg-[#CDEFF3] border-l border-white/40 p-4 overflow-y-auto
-                 transition-transform duration-300 translate-x-0 will-change-transform"
+                        transition-transform duration-300 translate-x-0 will-change-transform"
                     >
                         <nav className="flex justify-center text-center">
                             <ul className="flex flex-col gap-2">
