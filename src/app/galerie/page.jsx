@@ -34,6 +34,7 @@ export default function page() {
         async function fetchImages() {
             try {
                 const res = await fetch('/data/images.json')
+                // const res = await fetch('/api/images')
                 const data = await res.json()
                 setImages(data)
             } catch (err) {
