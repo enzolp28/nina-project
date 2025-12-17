@@ -2,7 +2,9 @@ import { NextResponse } from "next/server";
 
 export function GET() {
     const v = process.env.DATABASE_URL || "";
-    if (!v) return NextResponse.json({ ok: false, error: "DATABASE_URL manquante" }, { status: 500 });
+    if (!v) {
+        return NextResponse.json({ ok: false, error: "DATABASE_URL manquante" }, { status: 500 });
+    }
 
     try {
         const u = new URL(v);
@@ -15,7 +17,8 @@ export function GET() {
             hasPassword: Boolean(u.password),
             passwordLength: u.password.length,
         });
-    } catch {
+    } catch (e) {
         return NextResponse.json({ ok: false, error: "DATABASE_URL invalide" }, { status: 500 });
     }
 }
+
