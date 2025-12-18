@@ -1,4 +1,5 @@
 "use client";
+import LogoutButton from "@/components/LogoutButton";
 import { useEffect, useState } from "react";
 
 export default function AdminImages() {
@@ -72,8 +73,9 @@ export default function AdminImages() {
 
 
     return (
-        <main className="max-w-3xl mx-auto p-6">
+        <main className="max-w-3xl mx-auto p-6 mt-20">
             <h1 className="text-2xl font-bold mb-4">Admin — Images</h1>
+            <LogoutButton />
 
             <form onSubmit={handleSubmit} className="space-y-3 border p-4 rounded-xl">
                 <div>
