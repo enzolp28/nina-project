@@ -2,12 +2,25 @@
 
 import LogoutButton from "@/components/LogoutButton";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+
 
 export default function AdminImages() {
     // ✅ Upload (remplace le src manuel)
     const [files, setFiles] = useState([]);
     const [alt, setAlt] = useState("");
-    const [tagsText, setTagsText] = useState("");
+    const [selectedTags, setSelectedTags] = useState([]);
+
+
+    const SERVICE_TAGS = [
+        { value: "anniversaire", label: "🎉 Anniversaires" },
+        { value: "fetes", label: "🎄 Fêtes de fin d’année" },
+        { value: "receptions", label: "🥂 Réceptions" },
+        { value: "baby-showers", label: "👶 Baby showers" },
+        { value: "entreprise", label: "💼 Entreprise" },
+        { value: "domicile", label: "🏠 Domicile" },
+    ];
+
 
     // ✅ Liste images
     const [images, setImages] = useState([]);
@@ -18,7 +31,7 @@ export default function AdminImages() {
 
     // ✅ Edition
     const [editingId, setEditingId] = useState(null);
-    const [editSrc, setEditSrc] = useState("");
+    // const [editSrc, setEditSrc] = useState("");
     const [editAlt, setEditAlt] = useState("");
     const [editTagsText, setEditTagsText] = useState("");
 
@@ -49,7 +62,7 @@ export default function AdminImages() {
             for (const f of files) fd.append("files", f);
 
             fd.append("alt", alt);
-            fd.append("tags", tagsText); // "entreprise, noel"
+            fd.append("tags", selectedTags.join(",")); // "entreprise, noel"
 
             const res = await fetch("/api/upload", {
                 method: "POST",
@@ -66,7 +79,7 @@ export default function AdminImages() {
 
             setFiles([]);
             setAlt("");
-            setTagsText("");
+            setSelectedTags([]);
             setMsg(`Upload OK ✅ (${data?.created?.length || 0})`);
             await refresh();
         } catch (err) {
@@ -78,14 +91,14 @@ export default function AdminImages() {
 
     function startEdit(img) {
         setEditingId(img.id);
-        setEditSrc(img.src);
+        // setEditSrc(img.src);
         setEditAlt(img.alt || "");
         setEditTagsText((img.tags || []).join(", "));
     }
 
     function cancelEdit() {
         setEditingId(null);
-        setEditSrc("");
+        // setEditSrc("");
         setEditAlt("");
         setEditTagsText("");
     }
@@ -101,7 +114,7 @@ export default function AdminImages() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 type: "image",
-                src: editSrc,
+                // src: editSrc,
                 alt: editAlt,
                 tags,
             }),
@@ -134,7 +147,7 @@ export default function AdminImages() {
     }
 
     return (
-        <main className="max-w-3xl mx-auto p-6 mt-20">
+        <main className="max-w-5xl mx-auto p-3 mt-20">
             <div className="flex items-center justify-between mb-4">
                 <h1 className="text-2xl font-bold">Admin — Images</h1>
                 <LogoutButton />
@@ -165,16 +178,30 @@ export default function AdminImages() {
                 </div>
 
                 <div>
-                    <label className="block text-sm font-semibold">tags (séparés par des virgules)</label>
-                    <input
-                        className="w-full border rounded p-2"
-                        value={tagsText}
-                        onChange={(e) => setTagsText(e.target.value)}
-                        placeholder="entreprise, noel"
-                    />
+                    <p className="block text-sm font-semibold mb-2">Tags (services)</p>
+                    <div className="grid grid-cols-2 gap-2 justify-items-start">
+
+                        {SERVICE_TAGS.map((t) => (
+                            <label key={t.value} className="inline-flex w-fit items-center gap-2 text-sm">
+                                <input
+                                    type="checkbox"
+                                    checked={selectedTags.includes(t.value)}
+                                    onChange={(e) => {
+                                        setSelectedTags((prev) =>
+                                            e.target.checked
+                                                ? [...prev, t.value]
+                                                : prev.filter((x) => x !== t.value)
+                                        );
+                                    }}
+                                />
+                                {t.label}
+                            </label>
+                        ))}
+                    </div>
                 </div>
 
-                <button className="border rounded px-4 py-2" disabled={loading}>
+
+                <button className="border rounded px-4 py-2 hover:bg-amber-50 cursor-pointer" disabled={loading}>
                     {loading ? "Upload..." : "Uploader"}
                 </button>
 
@@ -193,25 +220,33 @@ export default function AdminImages() {
                             <div className="text-sm">
                                 <b>ID:</b> {img.id}
                             </div>
-                            <div className="text-sm break-all">
-                                <b>src:</b> {img.src}
-                            </div>
+
                             <div className="text-sm">
                                 <b>alt:</b> {img.alt}
                             </div>
                             <div className="text-sm">
                                 <b>tags:</b> {(img.tags || []).join(", ")}
                             </div>
+                            <div className="w-24 h-24 relative shrink-0">
+                                <Image
+                                    src={img.src}
+                                    alt={img.alt || ""}
+                                    fill
+                                    className="object-cover rounded"
+                                    sizes="96px"
+                                />
+                            </div>
+
 
                             {editingId === img.id && (
                                 <div className="mt-3 space-y-2">
-                                    <input
+                                    {/* <input
                                         className="w-full border rounded p-2"
                                         value={editSrc}
                                         onChange={(e) => setEditSrc(e.target.value)}
                                         placeholder="src"
-                                    />
-
+                                    /> */}
+                                    <label htmlFor="">Alt: </label>
                                     <input
                                         className="w-full border rounded p-2"
                                         value={editAlt}
@@ -219,6 +254,7 @@ export default function AdminImages() {
                                         placeholder="alt"
                                     />
 
+                                    <label htmlFor="">tag: </label>
                                     <input
                                         className="w-full border rounded p-2"
                                         value={editTagsText}

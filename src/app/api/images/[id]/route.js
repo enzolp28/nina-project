@@ -1,71 +1,128 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
 import { requireAdmin } from "@/lib/require-admin";
+import { createClient } from "@supabase/supabase-js";
+import { prisma } from "@/lib/prisma";
 
+export const runtime = "nodejs";
 
-const globalForPrisma = globalThis;
-const prisma = globalForPrisma.prisma ?? new PrismaClient();
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+function extractStoragePathFromPublicUrl(src, bucket) {
+    try {
+        if (!src || !src.startsWith("http")) return null;
 
-export async function DELETE(_req, { params }) {
+        const url = new URL(src);
+        const marker = `/storage/v1/object/public/${bucket}/`;
+        const idx = url.pathname.indexOf(marker);
+
+        if (idx === -1) return null;
+
+        const path = url.pathname.slice(idx + marker.length);
+        return decodeURIComponent(path);
+    } catch {
+        return null;
+    }
+}
+
+export async function DELETE(req, ctx) {
     const auth = await requireAdmin();
     if (!auth.ok) {
         return NextResponse.json({ error: auth.error }, { status: auth.status });
     }
 
+    const params = await ctx.params;
+    const id = Number(params.id);
+
+    if (Number.isNaN(id)) {
+        return NextResponse.json({ error: "ID invalide" }, { status: 400 });
+    }
+
     try {
-        const id = Number(params.id);
-        if (!id) {
-            return NextResponse.json({ error: "ID invalide" }, { status: 400 });
+        const img = await prisma.image.findUnique({
+            where: { id },
+            select: { src: true },
+        });
+
+        if (!img) {
+            return NextResponse.json({ error: "Image introuvable" }, { status: 404 });
         }
 
-        // Supprime l'image
+        const bucket = process.env.SUPABASE_STORAGE_BUCKET || "images";
+        const storagePath = extractStoragePathFromPublicUrl(img.src, bucket);
+
+        if (storagePath) {
+            const supabase = createClient(
+                process.env.NEXT_PUBLIC_SUPABASE_URL,
+                process.env.SUPABASE_SERVICE_ROLE_KEY
+            );
+
+            const { error: storageErr } = await supabase.storage
+                .from(bucket)
+                .remove([storagePath]);
+
+            if (storageErr) {
+                console.error("Supabase Storage remove error:", storageErr);
+                return NextResponse.json(
+                    { error: `Suppression Storage impossible: ${storageErr.message}` },
+                    { status: 500 }
+                );
+            }
+        }
+
         await prisma.image.delete({ where: { id } });
 
-        return NextResponse.json({ ok: true });
+        return NextResponse.json({
+            ok: true,
+            deletedId: id,
+            deletedFromStorage: Boolean(storagePath),
+        });
     } catch (e) {
         return NextResponse.json({ error: e.message }, { status: 500 });
     }
 }
 
-export async function PUT(req, { params }) {
+export async function PUT(req, ctx) {
     const auth = await requireAdmin();
     if (!auth.ok) {
         return NextResponse.json({ error: auth.error }, { status: auth.status });
     }
 
-    try {
-        const id = Number(params.id);
-        if (!id) {
-            return NextResponse.json({ error: "ID invalide" }, { status: 400 });
-        }
+    const params = await ctx.params;
+    const id = Number(params.id);
 
+    if (!id) {
+        return NextResponse.json({ error: "ID invalide" }, { status: 400 });
+    }
+
+    try {
         const body = await req.json();
         const { type, src, alt, tags } = body;
-
-        if (!src) {
-            return NextResponse.json({ error: "src est obligatoire" }, { status: 400 });
-        }
 
         const cleanTags = Array.isArray(tags)
             ? tags.map((t) => String(t).trim().toLowerCase()).filter(Boolean)
             : [];
 
+        // ✅ on ne modifie que ce qu'on reçoit
+        const dataToUpdate = {
+            alt: alt ?? "",
+            tags: {
+                set: [],
+                connectOrCreate: cleanTags.map((name) => ({
+                    where: { name },
+                    create: { name },
+                })),
+            },
+        };
+
+        if (typeof type === "string" && type.trim() !== "") {
+            dataToUpdate.type = type;
+        }
+
+        if (typeof src === "string" && src.trim() !== "") {
+            dataToUpdate.src = src;
+        }
+
         const updated = await prisma.image.update({
             where: { id },
-            data: {
-                type: type ?? "image",
-                src,
-                alt: alt ?? "",
-                tags: {
-                    // on repart propre : on remplace la liste de tags
-                    set: [],
-                    connectOrCreate: cleanTags.map((name) => ({
-                        where: { name },
-                        create: { name },
-                    })),
-                },
-            },
+            data: dataToUpdate,
             include: { tags: true },
         });
 
@@ -80,4 +137,3 @@ export async function PUT(req, { params }) {
         return NextResponse.json({ error: e.message }, { status: 500 });
     }
 }
-

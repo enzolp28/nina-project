@@ -122,7 +122,7 @@ export default function Home() {
               bgClass="bg-yellow-100"
               title="🎄 Fêtes de fin d’année"
               description="Création de décors féeriques pour Noël, le Nouvel An et toutes vos célébrations hivernales."
-              tag="festes"
+              tag="fetes"
             />
 
             <CardService

@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@/lib/supabase-server";
+import AdminIdleLogout from "@/components/AdminIdleLogout";
 
 export default async function AdminLayout({ children }) {
     const supabase = await createServerComponentClient();
@@ -10,5 +11,8 @@ export default async function AdminLayout({ children }) {
     const adminEmail = process.env.ADMIN_EMAIL;
     if (adminEmail && data.user.email !== adminEmail) redirect("/");
 
-    return <>{children}</>;
+    return <>
+        <AdminIdleLogout minutes={160} />
+        {children}
+    </>;
 }

@@ -33,10 +33,12 @@ export default function page() {
     useEffect(() => {
         async function fetchImages() {
             try {
-                const res = await fetch('/data/images.json')
-                // const res = await fetch('/api/images')
+                // const res = await fetch('/data/images.json')
+                const res = await fetch("/api/images", { cache: "no-store" });
+                if (!res.ok) throw new Error("Erreur API images");
                 const data = await res.json()
-                setImages(data)
+                setImages(Array.isArray(data) ? data : []);
+                // setImages(data)
             } catch (err) {
                 console.error('Erreur lors de la recherche des images :', err)
             }

@@ -1,56 +1,40 @@
-import React from 'react'
-import Link from "next/link"
-
+import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className='bg-[#268b9db7] text-white flex justify-between p-8'>
+        <footer className="bg-[#268b9db7] text-white flex justify-between p-8">
             <div>
-                <nav aria-label="Footer navigation" className='flex flex-col gap-5'>
-                    <h3 className='font-bold text-lg '>Navigation</h3>
-                    <ul className='flex flex-col gap-2 text-xs'>
-                        <Link href={'/'}>
-                            <li>Accueil</li>
-                        </Link>
-                        <Link href={'/galerie'}>
-                            <li>Galerie</li>
-                        </Link>
-                        <Link href={'/#services'}>
-                            <li>Nos services</li>
-                        </Link>
-
+                <nav aria-label="Footer navigation" className="flex flex-col gap-5">
+                    <h3 className="font-bold text-lg">Navigation</h3>
+                    <ul className="flex flex-col gap-2 text-xs">
+                        <li><Link href="/">Accueil</Link></li>
+                        <li><Link href="/galerie">Galerie</Link></li>
+                        <li><Link href="/#services">Nos services</Link></li>
                     </ul>
                 </nav>
             </div>
-            {/* <section className='flex flex-col gap-5'>
-                <h3 className='font-bold text-lg '>Prestations</h3>
-                <ul className='flex flex-col gap-2 text-xs'>
-                    <li>Événements d’entreprise</li>
-                    <li>Créations sur-mesure</li>
-                    <li>Fêtes à thème</li>
-                </ul>
-            </section> */}
-            <section className='flex flex-col gap-5'>
-                <h3 className='font-bold text-lg '>Info pratique</h3>
-                <ul className='flex flex-col gap-2 text-xs'>
-                    <Link href={'/#faq'}>
-                        <li>FAQ</li>
-                    </Link>
-                    <Link href={'#'}>
-                        <li>À propos</li>
-                    </Link>
+
+            <section className="flex flex-col gap-5">
+                <h3 className="font-bold text-lg">Info pratique</h3>
+                <ul className="flex flex-col gap-2 text-xs">
+                    <li><Link href="/#faq">FAQ</Link></li>
+                    <li><Link href="#">À propos</Link></li>
+
+                    {/* ✅ lien discret */}
+                    <li className="opacity-80 hover:opacity-100">
+                        <Link href="/login">Connexion</Link>
+                    </li>
                 </ul>
             </section>
-            <section className='flex flex-col gap-5'>
-                <h3 className='font-bold text-lg '>Contact</h3>
-                <ul className='flex flex-col gap-2 text-xs'>
-                    <Link href={'/contact'}>
-                        <li>Nous contacter</li>
-                    </Link>
+
+            <section className="flex flex-col gap-5">
+                <h3 className="font-bold text-lg">Contact</h3>
+                <ul className="flex flex-col gap-2 text-xs">
+                    <li><Link href="/contact">Nous contacter</Link></li>
                     <li>Conditions générales</li>
                     <li>Mention légale</li>
                 </ul>
             </section>
         </footer>
-    )
+    );
 }
