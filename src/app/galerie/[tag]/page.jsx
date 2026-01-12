@@ -8,19 +8,16 @@ import Link from "next/link"
 export default function GalerieTag() {
     const { tag } = useParams()
     const [images, setImages] = useState([])
-    const [currentIndex, setCurrentIndex] = useState(null)
+    const [currentIndex, setCurrentIndex] = useState(null) // 👉 savoir quelle image est ouverte
 
     // Charger et filtrer les images selon le tag
     useEffect(() => {
         async function fetchImages() {
             try {
-                // const res = await fetch("/data/images.json")
-                const res = await fetch("/api/images", { cache: "no-store" })
+                const res = await fetch("/data/images.json")
                 const data = await res.json()
-
-                const allImages = Array.isArray(data) ? data : []
-                const filtered = allImages.filter((image) => (image.tags || []).includes(tag))
-
+                console.log("dataaaa : ", data);
+                const filtered = data.filter((image) => image.tags.includes(tag))
                 setImages(filtered)
             } catch (err) {
                 console.error("Erreur lors du chargement des images :", err)
