@@ -102,7 +102,7 @@ export default function page() {
     // Redirige automatiquement vers l'accueil après succès
     useEffect(() => {
         if (showModal) {
-            const t = setTimeout(() => router.push('/'), 2200)
+            const t = setTimeout(() => router.push('/merci'), 2200)
             return () => clearTimeout(t)
         }
     }, [showModal, router])
