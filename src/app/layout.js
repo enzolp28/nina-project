@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Too Many Balloons - Décorations en ballons pour tous vos événements",
-  description: "Too Many Balloons réalise des décorations en ballons uniques pour anniversaires, fêtes, événements d'entreprise et plus encore. Donnez une touche magique et festive à vos événements grâce à nos arches, colonnes et créations sur-mesure !",
+  title: "Nina créations - Décorations en ballons pour tous vos événements",
+  description: "Nina créations réalise des décorations en ballons uniques pour anniversaires, fêtes, événements d'entreprise et plus encore. Donnez une touche magique et festive à vos événements grâce à nos arches, colonnes et créations sur-mesure !",
 };
 
 export default function RootLayout({ children }) {
