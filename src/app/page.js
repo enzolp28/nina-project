@@ -42,11 +42,9 @@ export default function Home() {
         <div className="mt-20 order-2 w-[80%] md:order-1 relative md:w-1/3 mx-auto">
           <div className="absolute bottom-5 left-5 w-full h-full bg-[#fdcfd3] "></div>
           <section className="border-2 border-amber-50 relative h-full flex flex-col gap-10 justify-center bg-[#bfd8cf]  p-6" >
-            <h1 className="text-center text-xl font-bold text-stone-50 break-words md:text-4xl ">TooManyBalloons</h1>
-            <p >Chez TooManyBalloons, nous mettons notre créativité et notre savoir-faire au service de vos plus beaux moments. Que ce soit pour un anniversaire, une réception, les fêtes de Noël, ou toute autre occasion spéciale, nous vous accompagnons pour créer une ambiance unique, chaleureuse et inoubliable.
+            <h1 className="text-center text-xl font-bold text-stone-50 break-words md:text-4xl ">Nina Créations</h1>
+            <p className="text-lg">Bienvenue chez <span className="font-bold">Nina Créations</span>. Je conçois des décorations sur mesure pour sublimer vos événements et créer une atmosphère élégante, harmonieuse et mémorable. Que ce soit pour un anniversaire, une réception, Noël ou un moment important, je vous accompagne de l’idée à la mise en place, avec un vrai souci du détail, pour une ambiance chaleureuse et inoubliable.
             </p>
-            {/* Chaque événement est une histoire, et notre mission est de la sublimer grâce à des services personnalisés et adaptés à vos envies. Vous avez une idée ? Nous la transformons en réalité. Vous cherchez l’inspiration ? Nous sommes là pour vous guider.
-              Faites de chaque moment une célébration à votre image. */}
           </section>
         </div>
 

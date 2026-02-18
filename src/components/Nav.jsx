@@ -23,12 +23,12 @@ export default function Nav() {
     return (
 
         <>
-            <nav className="p-2 flex items-center justify-between fixed top-0 w-full z-[1111] bg-[#CDEFF3] border-b border-white/40">
+            <nav className="p-2 flex items-center justify-between fixed top-0 w-full z-[100] bg-[#CDEFF3] border-b border-white/40">
 
 
                 <Link className="flex items-center ml-4" href={'/'}>
                     <Image src='/images/logo-balloons.png' width={50} height={50} alt={'Logo'} />
-                    <span className="font-bold">Too Many Balloons</span>
+                    <span className="font-bold text-md ml-2">Nina Créations</span>
                 </Link>
 
                 <div className="hidden md:flex items-center gap-10 mr-5">
@@ -62,7 +62,7 @@ export default function Nav() {
             </nav>
 
             {mobileOpen && (
-                <div className="fixed inset-0 z-[1110] md:hidden">
+                <div className="fixed inset-0 z-[100] md:hidden">
                     {/* Overlay sombre qui ferme au clic */}
                     <div className="absolute inset-0 bg-black/40" onClick={closeMobile} />
 
@@ -103,8 +103,9 @@ export default function Nav() {
                                 </li>
                                 <li className="pt-2">
                                     <ContactButton
+                                        href='/contact'
                                         text="Contact"
-                                        className="w-[full text-center py-3 px-8 mt-10 rounded-xl bg-[#fdcfd3] border border-white/40"
+                                        className="w-full text-center py-3 px-8 mt-10 rounded-xl bg-[#fdcfd3] border border-white/40"
                                         /* si ContactButton n'accepte pas onClick, tu peux wrapper dans un Link ou laisser sans */
                                         onClick={closeMobile}
                                     />
