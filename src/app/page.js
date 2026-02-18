@@ -43,7 +43,7 @@ export default function Home() {
           <div className="absolute bottom-5 left-5 w-full h-full bg-[#fdcfd3] "></div>
           <section className="border-2 border-amber-50 relative h-full flex flex-col gap-10 justify-center bg-[#bfd8cf]  p-6" >
             <h1 className="text-center text-xl font-bold text-stone-50 break-words md:text-4xl ">Nina Créations</h1>
-            <p className="text-lg">Bienvenue chez sur ma page web. Je conçois des décorations sur mesure pour sublimer vos événements et créer une atmosphère élégante, harmonieuse et mémorable. Que ce soit pour un anniversaire, une réception, Noël ou un moment important, je vous accompagne de l’idée à la mise en place, avec un vrai souci du détail, pour une ambiance chaleureuse et inoubliable.
+            <p className="text-lg">Bienvenue sur ma page d’accueil. Je conçois des décorations sur mesure pour sublimer vos événements et créer une atmosphère élégante, harmonieuse et mémorable. Que ce soit pour un anniversaire, une réception, Noël ou un moment important, je vous accompagne de l’idée à la mise en place, avec un vrai souci du détail, pour une ambiance chaleureuse et inoubliable.
             </p>
           </section>
         </div>
