@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Nina créations - Décorations en ballons pour tous vos événements",
-  description: "Nina créations réalise des décorations en ballons uniques pour anniversaires, fêtes, événements d'entreprise et plus encore. Donnez une touche magique et festive à vos événements grâce à nos arches, colonnes et créations sur-mesure !",
+  title: "Nina Créations - Décoration événementielle en ballons | Île-de-France",
+  description: "Je conçois des décors en ballons sur mesure en Île-de-France pour sublimer vos événements : anniversaire, réception, Noël, entreprise. Une ambiance élégante, chaleureuse et mémorable.",
 };
 
 export default function RootLayout({ children }) {
